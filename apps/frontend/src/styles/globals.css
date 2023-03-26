@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.svg_icon svg path {
+    fill: rgba(22, 22, 26, 1);
+}
+
+.svg_icon_active svg path {
+    fill: rgba(255, 101, 52, 1);
+}
+
+.svg_icon_brand svg path {
+    fill: rgba(255, 101, 52, 1);
+}
+
+.svg_icon_accent_1 svg path {
+    fill: rgba(39, 174, 96, 1);
+}
+.svg_icon_accent_2 svg path {
+    fill: rgba(242, 153, 74, 1);
+}
+.svg_icon_accent_3 svg path {
+    fill: rgba(235, 87, 87, 1);
+}
+.svg_icon_accent_4 svg path {
+    fill: rgba(47, 128, 237, 1);
+}
+.svg_icon_accent_5 svg path {
+    fill: rgba(187, 107, 217, 1);
+}
+
+.svg_32 svg {
+    width: 32px;
+    height: 32px;
+}
+
+.svg_24 svg {
+    width: 24px;
+    height: 24px;
+}
+
+.svg_20 svg {
+    width: 20px;
+    height: 20px;
+}
+.svg_16 svg {
+    width: 16px;
+    height: 16px;
+}
+
+.svg_c_60 svg path {
+    fill: rgba(22, 22, 26, 0.6);
+}
+
+@layer components {
+    .svg-icon-active {
+        @apply svg_icon_active;
+    }
+  }
+

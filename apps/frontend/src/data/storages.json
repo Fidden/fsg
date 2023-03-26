@@ -1,0 +1,122 @@
+[
+    {
+      "id": 1,
+      "country": {
+        "code": "VE",
+        "name": "Venezuela"
+      },
+      "address": {
+        "zip": "03009-2317",
+        "city": "Mertzchester",
+        "street": "1924 Maybelle Grove"
+      }
+    },
+    {
+      "id": 2,
+      "country": {
+        "code": "TR",
+        "name": "Turkey"
+      },
+      "address": {
+        "zip": "95968-9753",
+        "city": "South Archibald",
+        "street": "45784 Denesik Passage"
+      }
+    },
+    {
+      "id": 3,
+      "country": {
+        "code": "BS",
+        "name": "Bahamas"
+      },
+      "address": {
+        "zip": "91016",
+        "city": "Konopelskimouth",
+        "street": "573 Schuster Extension"
+      }
+    },
+    {
+      "id": 4,
+      "country": {
+        "code": "MH",
+        "name": "Marshall Islands"
+      },
+      "address": {
+        "zip": "08205",
+        "city": "Edmondside",
+        "street": "37688 Green Hills"
+      }
+    },
+    {
+      "id": 5,
+      "country": {
+        "code": "KI",
+        "name": "Kiribati"
+      },
+      "address": {
+        "zip": "00395-4105",
+        "city": "New Barton",
+        "street": "94304 Braxton Groves"
+      }
+    },
+    {
+      "id": 6,
+      "country": {
+        "code": "AQ",
+        "name": "Antarctica"
+      },
+      "address": {
+        "zip": "00475-2367",
+        "city": "Port Chaunceyview",
+        "street": "5047 Janae Groves"
+      }
+    },
+    {
+      "id": 7,
+      "country": {
+        "code": "SZ",
+        "name": "Eswatini"
+      },
+      "address": {
+        "zip": "49267-7504",
+        "city": "Madisonchester",
+        "street": "393 Kshlerin Mount"
+      }
+    },
+    {
+      "id": 8,
+      "country": {
+        "code": "DE",
+        "name": "Germany"
+      },
+      "address": {
+        "zip": "75290-4483",
+        "city": "Port Nikko",
+        "street": "542 Broderick Spring"
+      }
+    },
+    {
+      "id": 9,
+      "country": {
+        "code": "CO",
+        "name": "Colombia"
+      },
+      "address": {
+        "zip": "15840",
+        "city": "Blairside",
+        "street": "632 Gunnar Alley"
+      }
+    },
+    {
+      "id": 10,
+      "country": {
+        "code": "AT",
+        "name": "Austria"
+      },
+      "address": {
+        "zip": "71809-9799",
+        "city": "Lake Shanellefurt",
+        "street": "350 Gabrielle Pass"
+      }
+    }
+  ]
