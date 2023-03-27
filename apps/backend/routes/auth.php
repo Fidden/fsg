@@ -24,12 +24,12 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->middleware('guest')
     ->name('password.store');
 
-Route::get('/verify-email', [VerifyEmailController::class, '__invoke'])
-    ->middleware(['signed', 'throttle:6,1'])
+Route::post('/verify-email', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['throttle:6,1'])
     ->name('verification.verify');
 
-Route::get('/verify-email/resend', [VerifyEmailController::class, 'resend'])
-    ->middleware(['signed', 'throttle:6,1'])
+Route::any('/verify-email/resend', [VerifyEmailController::class, 'resend'])
+    ->middleware(['throttle:6,1'])
     ->name('verification.resend');
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])

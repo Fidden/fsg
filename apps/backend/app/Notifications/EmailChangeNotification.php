@@ -8,19 +8,23 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class EmailVerificationNotification extends Notification
+class EmailChangeNotification extends Notification
 {
     use Queueable;
 
     private User $user;
+    private string $newEmail;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, string $newEmail)
     {
         $this->user = $user;
-        $this->user->createVerifyCode(VerifyCodeAction::Register);
+        $this->newEmail = $newEmail;
+        $this->user->createVerifyCode(VerifyCodeAction::ChangeEmail, [
+            'email' => $newEmail
+        ]);
     }
 
     /**
@@ -38,9 +42,10 @@ class EmailVerificationNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)->markdown('email', [
-            'code' => $this->user->getVerifyCode(VerifyCodeAction::Register),
+        return (new MailMessage)->markdown('email-change', [
+            'code' => $this->user->getVerifyCode(VerifyCodeAction::ChangeEmail),
             'user_email' => $this->user->email,
+            'new_email' => $this->newEmail
         ]);
     }
 

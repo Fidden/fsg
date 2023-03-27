@@ -1,8 +1,8 @@
 @component('mail::message')
 <h1 style="text-align: center">Привет, {{ $user_email }}!</h1>
 
-<h2 style="text-align: center; margin-bottom: 32px;">Чтобы подтвердить действительность своего электронного адреса
-учётной записи
+<h2 style="text-align: center; margin-bottom: 32px;">Чтобы подтвердить смену своего электронного адреса
+учётной записи с {{ $user_email }} на {{ $new_email }}
 FSG, используйте код верификации ниже:</h2>
 
 @component('mail::panel')

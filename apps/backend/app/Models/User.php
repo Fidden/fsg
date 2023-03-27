@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\VerifyCodeAction;
 use App\Support\HasAdvancedFilter;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -56,7 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'phone_verified_at' => 'datetime',
-        'phone' => E164PhoneNumberCast::class.':GE',
+        'phone' => E164PhoneNumberCast::class . ':GE',
     ];
 
     public array $orderable = [
@@ -91,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function scopeAdmins()
     {
-        return $this->whereHas('roles', fn ($q) => $q->where('title', 'Admin'));
+        return $this->whereHas('roles', fn($q) => $q->where('title', 'Admin'));
     }
 
     public function setPasswordAttribute($input)
@@ -119,17 +121,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(UserVerifyCode::class, 'user_id', 'id');
     }
 
-    public function createVerifyCode()
+    public function createVerifyCode(VerifyCodeAction $action, array $data = null)
     {
         $this->verifyCodes()->create([
-            'code' => Str::random(6),
+            'code' => Str::random(4),
+            'action' => $action->value,
+            'data' => json_encode($data),
             'expires_at' => Carbon::now()->addMinutes(10),
         ]);
     }
 
-    public function getVerifyCode()
+    public function getVerifyCode(VerifyCodeAction $action)
     {
         return $this->verifyCodes()
+            ->where('action', $action->value)
             ->latest()
             ->value('code');
     }
