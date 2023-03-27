@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\VerifyCodeAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EmailVerifyRequest;
+use App\Http\Requests\CodeVerifyRequest;
 use App\Notifications\EmailVerificationNotification;
 use App\Services\ResponseService;
 use Illuminate\Auth\Events\Verified;
@@ -17,7 +18,7 @@ class VerifyEmailController extends Controller
     /**
      * Mark the authenticated user's email address as verified.
      */
-    public function __invoke(EmailVerifyRequest $request): \Illuminate\Contracts\Foundation\Application|ResponseFactory|Application|Response
+    public function __invoke(CodeVerifyRequest $request): \Illuminate\Contracts\Foundation\Application|ResponseFactory|Application|Response
     {
         $user = $request->user();
         if ($user->hasVerifiedEmail()) {
@@ -27,7 +28,7 @@ class VerifyEmailController extends Controller
             );
         }
 
-        if ($user->getVerifyCode() !== $request->code) {
+        if ($user->getVerifyCode(VerifyCodeAction::Register) !== $request->code) {
             return ResponseService::error(
                 __('Invalid_verify_code'),
                 422

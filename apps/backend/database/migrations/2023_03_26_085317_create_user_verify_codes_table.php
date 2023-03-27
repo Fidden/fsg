@@ -14,7 +14,9 @@ return new class extends Migration {
                 ->constrained()
                 ->cascadeOnDelete();
 
-            $table->string('code');
+            $table->string('code', 4);
+            $table->enum('action', ['change_email', 'change_password', 'register']);
+            $table->json('data')->nullable()->default(null);
             $table->dateTime('expires_at');
             $table->timestamps();
         });

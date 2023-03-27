@@ -21,6 +21,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users/me', [UserController::class, 'show'])
         ->name('users.me');
 
+    Route::post('/users/request-email-change', [UserController::class, 'requestEmailChange']);
+    Route::post('/users/change-email', [UserController::class, 'changeEmail']);
+    Route::post('/users/change-password', [UserController::class, 'changePassword']);
+
     Route::get('/users/phone', [PhoneVerificationController::class, 'store'])
         ->name('users.phone.send-code');
 
@@ -35,7 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
         });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::prefix('flights')
     ->name('flights.')

@@ -11,6 +11,8 @@ class UserVerifyCode extends Model
 
     protected $fillable = [
         'code',
+        'action',
+        'data',
         'expires_at',
     ];
 

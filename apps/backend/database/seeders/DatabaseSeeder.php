@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
         ]);
 
-        \App\Models\Flight::factory()->count(10)->create();
+        \App\Models\Flight::factory()->count(50)->create();
         \App\Models\Branch::factory()->count(4)->create();
         \App\Models\Storage::factory()->count(4)->create();
     }

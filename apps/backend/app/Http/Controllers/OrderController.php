@@ -9,6 +9,7 @@ use App\Models\IncomingPackage;
 use App\Models\Order;
 use App\Models\Shop;
 use App\Models\Storage;
+use App\Services\ResponseService;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\DB;
 use OpenApi\Attributes as OA;
@@ -20,7 +21,7 @@ class OrderController extends Controller
     {
         $orders = QueryBuilder::for(Order::class)
             ->with('packages')
-            ->get();
+            ->paginate();
 
         return OrderResource::collection($orders);
     }
@@ -53,23 +54,24 @@ class OrderController extends Controller
         /** @var Storage $defaultStorage */
         $defaultStorage = Storage::query()->first();
 
-        $order = DB::transaction(function () use ($defaultStorage, $shop, $user, $request): Order {
-            $package = IncomingPackage::query()->firstOrCreate(array_merge([
+        DB::beginTransaction();
+        try {
+            $package = IncomingPackage::query()->create([
                 'user_id' => $user->id,
                 'shop_id' => $shop->id,
-            ], array_merge($request->only(
-                'name',
-                'tracking_number',
-                'weight',
-                'size',
-                'worth_amount',
-                'worth_currency'
-            ), [
                 'storage_id' => $defaultStorage->id,
-            ])));
+                ...$request->only([
+                    'name',
+                    'tracking_number',
+                    'weight',
+                    'size',
+                    'worth_amount',
+                    'worth_currency'
+                ])
+            ]);
 
             /** @var Order $order */
-            $order = Order::query()->firstOrCreate([
+            $order = Order::query()->create([
                 'user_id' => $user->id,
                 'status' => OrderStatus::Pending,
                 'branch_id' => $request->branch_id ?: $user->recipient->branch_id,
@@ -77,9 +79,10 @@ class OrderController extends Controller
 
             $order->packages()->attach($package);
 
-            return $order;
-        });
-
-        return OrderResource::make($order);
+            return OrderResource::make($order);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ResponseService::error(__('Error while createing order.'), 500);
+        }
     }
 }

@@ -1,0 +1,91 @@
+.change-email__modal-blackbox {
+    background: rgba(22, 22, 26, 0.85);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.change-email__modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    display: flex;
+    padding: 32px;
+    border-radius: 12px;
+}
+
+.change-email__code {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.change-email__code-block {
+    padding: 12px 21px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(22, 22, 26, 0.16);
+    border-radius: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 2/2.2;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 150%;
+    text-align: center;
+    color: #16161A;
+}
+
+.change-email__code-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+.change-email__resend {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    color: #16161A;
+    padding: 32px 0;
+}
+
+.change-email__info {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    color: rgba(22, 22, 26, 0.6);
+    padding-bottom: 32px;
+}
+
+.change-email__info span {
+    font-weight: bold;
+    color: #16161A;
+}
+
+
+.change-email__cancel {
+    background: rgba(22, 22, 26, 0.04);
+    border-radius: 12px;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 145%;
+    color: #16161A;
+}
