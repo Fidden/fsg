@@ -6,6 +6,7 @@ use App\Http\Requests\StoreRecipientRequest;
 use App\Models\Branch;
 use App\Models\Interfaces\RecipientInterface;
 use App\Models\Recipient;
+use App\Services\ResponseService;
 use OpenApi\Annotations as OA;
 
 class RecipientController extends Controller
@@ -153,8 +154,7 @@ class RecipientController extends Controller
      */
     public function store(StoreRecipientRequest $request)
     {
-        $user = $request->user();
-
+        $user = auth()->user();
         /** @var Branch $branch */
         $branch = Branch::query()->where('id', $request->branch_id)->firstOrFail();
 
@@ -172,8 +172,11 @@ class RecipientController extends Controller
             'model_id' => $model->id,
             'address' => null, // FIXME
             'city_id' => $branch->city_id,
-            'branch_id' => $request->branch_id,
+            'branch_id' => $request->branch_id
         ])->setRelations(compact('user', 'model'));
+
+        $user->phone = $request->phone;
+        $user->save();
 
         return response()->json($recipient->toArray(), 201);
     }

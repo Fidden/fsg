@@ -11,7 +11,6 @@ import Paginator from "@/components/Paginator";
 const ParcelsList = (order) => {
     const [page, setPage] = useState(1);
     const {data: orders, isLoading, error, mutate} = useSWR(`/orders?page=${page}`, defaultFetcher);
-    console.log(orders);
     if (isLoading) {
         return <Loading>Загрузка...</Loading>;
     }
@@ -20,7 +19,7 @@ const ParcelsList = (order) => {
         return <LoadError>Ошибка загрузки данных</LoadError>;
     }
 
-    if (orders?.length < 1) {
+    if (orders.data?.length < 1) {
         return <ParcelsEmpty button="Добавить посылку">У вас нет посылок</ParcelsEmpty>;
     }
 

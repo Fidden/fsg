@@ -15,7 +15,12 @@ export const ChangeEmailModal = () => {
 
     useEffect(() => {
         if (code.length >= 4) {
-            changeEmail();
+            changeEmail()
+                .then(() => {
+                    toast.success('Почта успешно изменена')
+                    router.push('/dashboard');
+                })
+                .catch(e => toast.error(e));
         }
     }, [code])
 
@@ -27,9 +32,6 @@ export const ChangeEmailModal = () => {
             })
 
             toast.success('Код для подтверждения отправлен на почту.');
-            setTimeout(() => {
-                router.push('/dashboard');
-            }, 1000)
         } catch (e) {
             toast.error(e.message)
         }
@@ -40,8 +42,6 @@ export const ChangeEmailModal = () => {
             await axios.post('/users/change-email', {
                 code,
             })
-
-            toast.success('Почта успешно изменена.');
         } catch (e) {
             toast.error(e.message)
         }
@@ -54,7 +54,7 @@ export const ChangeEmailModal = () => {
                     <div className="flex flex-col gap-1">
                         <FormHead>Подтверждение</FormHead>
                         <div className="change-email__info">
-                            Мы отправили код в письме, на <span>{user.email}</span>
+                            Мы отправили код в письме, на <span>{user?.email}</span>
                         </div>
 
                         <div className={'change-email__code'}>

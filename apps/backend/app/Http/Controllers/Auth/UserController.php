@@ -6,6 +6,7 @@ use App\Enums\VerifyCodeAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CodeVerifyRequest;
 use App\Http\Requests\UserChangePasswordRequest;
+use App\Http\Requests\UserChangePhoneRequest;
 use App\Http\Requests\UserRequestEmailChange;
 use App\Notifications\EmailChangeNotification;
 use App\Services\ResponseService;
@@ -68,12 +69,25 @@ class UserController extends Controller
      */
     public function changePassword(UserChangePasswordRequest $request): Response|Application|ResponseFactory
     {
-        $user = $request->user();
-        if (Hash::check($request->password, $user->password)) {
+        $user = auth()->user();
+        if (Hash::make($request->password) == $user->password) {
             return ResponseService::error(__('Password_doesnt_match'), 400);
         }
 
         $user->password = $request->new_password;
+        $user->save();
+
+        return ResponseService::noContent();
+    }
+
+    /**
+     * @param UserChangePhoneRequest $request
+     * @return Response|Application|ResponseFactory
+     */
+    public function changePhone(UserChangePhoneRequest $request): Response|Application|ResponseFactory
+    {
+        $user = auth()->user();
+        $user->phone = $request->password;
         $user->save();
 
         return ResponseService::noContent();

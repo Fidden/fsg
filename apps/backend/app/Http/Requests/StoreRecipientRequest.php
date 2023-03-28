@@ -33,12 +33,12 @@ class StoreRecipientRequest extends AbstractRequest
 
     protected function getTypeCasts(): array
     {
-        $fixName = fn ($value) => Str::ucfirst(mb_strtolower($value));
+        $fixName = fn($value) => Str::ucfirst(mb_strtolower($value));
 
         return [
             'first_name_en' => $fixName,
             'last_name_en' => $fixName,
-            'company_name_en' => fn ($value) => Str::headline(mb_strtolower($value)),
+            'company_name_en' => fn($value) => Str::headline(mb_strtolower($value)),
         ];
     }
 
@@ -61,7 +61,7 @@ class StoreRecipientRequest extends AbstractRequest
     public function rules(): array
     {
         $enNames = [
-            Rule::requiredIf(fn () => $this->type !== RecipientType::Business->value),
+            Rule::requiredIf(fn() => $this->type !== RecipientType::Business->value),
             'string',
             'max:255',
             'min:2',
@@ -69,7 +69,7 @@ class StoreRecipientRequest extends AbstractRequest
         ];
 
         $kaNames = [
-            Rule::requiredIf(fn () => $this->type === RecipientType::IndividualResident->value),
+            Rule::requiredIf(fn() => $this->type === RecipientType::IndividualResident->value),
             'string',
             'max:255',
             'min:2',
@@ -82,25 +82,26 @@ class StoreRecipientRequest extends AbstractRequest
             'last_name_en' => $enNames,
             'first_name_ka' => $kaNames,
             'last_name_ka' => $kaNames,
+            'phone' => 'required|string',
             'uid' => [
-                Rule::requiredIf(fn () => $this->type === RecipientType::Business->value),
+                Rule::requiredIf(fn() => $this->type === RecipientType::Business->value),
                 'numeric',
                 'digits_between:7,12',
             ],
             'company_name_en' => [
-                Rule::requiredIf(fn () => $this->type === RecipientType::Business->value),
+                Rule::requiredIf(fn() => $this->type === RecipientType::Business->value),
                 'string',
                 'max:255',
                 'min:2',
                 'regex:/^[a-zA-Z0-9()_\-,.\s]+$/',
             ],
             'personal_number' => [
-                Rule::requiredIf(fn () => $this->type === RecipientType::IndividualResident->value),
+                Rule::requiredIf(fn() => $this->type === RecipientType::IndividualResident->value),
                 'numeric',
                 'digits:11',
             ],
             'document_number' => [
-                Rule::requiredIf(fn () => $this->type === RecipientType::IndividualNonResident->value),
+                Rule::requiredIf(fn() => $this->type === RecipientType::IndividualNonResident->value),
                 'string',
                 'min:7',
                 'max:14',

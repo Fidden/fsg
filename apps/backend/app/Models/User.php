@@ -6,7 +6,6 @@ use App\Enums\VerifyCodeAction;
 use App\Support\HasAdvancedFilter;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,7 +13,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Propaganistas\LaravelPhone\Casts\E164PhoneNumberCast;
 
@@ -58,7 +56,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'phone_verified_at' => 'datetime',
-        'phone' => E164PhoneNumberCast::class . ':GE',
     ];
 
     public array $orderable = [
@@ -123,8 +120,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function createVerifyCode(VerifyCodeAction $action, array $data = null)
     {
+        $number = rand(0, 9999);
+        $number = str_pad($number, 4, '0', STR_PAD_LEFT);
+
         $this->verifyCodes()->create([
-            'code' => Str::random(4),
+            'code' => $number,
             'action' => $action->value,
             'data' => json_encode($data),
             'expires_at' => Carbon::now()->addMinutes(10),

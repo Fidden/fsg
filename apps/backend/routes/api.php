@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/users/request-email-change', [UserController::class, 'requestEmailChange']);
     Route::post('/users/change-email', [UserController::class, 'changeEmail']);
     Route::post('/users/change-password', [UserController::class, 'changePassword']);
+    Route::post('/users/change-phone', [UserController::class, 'changePhone']);
 
     Route::get('/users/phone', [PhoneVerificationController::class, 'store'])
         ->name('users.phone.send-code');
