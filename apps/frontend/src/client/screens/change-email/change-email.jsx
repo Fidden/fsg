@@ -15,7 +15,7 @@ import {ChangeEmailModal} from "@/client/screens/change-email/__modal/change-ema
 export const ChangeEmailScreen = () => {
     const {user, isUserLoading} = useAuth();
     const [email, setEmail] = useState('');
-    const [modalOpen, setModalOpen] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         const body = document.getElementsByTagName('body')[0];
@@ -31,6 +31,8 @@ export const ChangeEmailScreen = () => {
             await axios.post('/users/request-email-change', {
                 email: email
             })
+
+            setModalOpen(true);
 
             toast.success('Код для подтверждения отправлен на почту.');
         } catch (e) {

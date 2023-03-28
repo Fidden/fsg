@@ -60,11 +60,6 @@ export default function Index() {
                                            placeholder="hello@fsg.post"/>
                                 </InputGroup>
 
-                                <InputGroup id="phone" label={t('signUpForm.phone')} errors={errors.phone}>
-                                    <Input required maxLength="255" {...register('phone')} type="tel"
-                                           placeholder="8-10-995-32-12345"/>
-                                </InputGroup>
-
                                 <InputGroup id="password" label={t('signUpForm.password')} errors={errors.password}>
                                     <Input
                                         required

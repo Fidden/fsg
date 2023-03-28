@@ -51,14 +51,12 @@ class RegisteredUserController extends Controller
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', Rules\Password::min(8)->letters()->numbers()],
-            'phone' => ['required', 'string']
         ]);
 
         /** @var User $user */
         $user = User::query()->create([
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'phone' => $request->input('phone'),
         ]);
 
         $user->notify(new EmailVerificationNotification($user));

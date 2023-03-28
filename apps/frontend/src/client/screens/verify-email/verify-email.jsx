@@ -1,5 +1,4 @@
 import MainLayout from '@/components/Layouts/MainLayout';
-import useTranslation from 'next-translate/useTranslation';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import React, {useEffect, useState} from 'react';
 import {useAuth} from '@/hooks/auth';
@@ -7,6 +6,7 @@ import {useRouter} from 'next/router';
 import LoadingLayout from "@/components/Layouts/LoadingLayout";
 import FormHead from "@/components/ui/FormHead";
 import './verify-email.css';
+import toast from "react-hot-toast";
 
 export const VerifyEmailScreen = () => {
     const router = useRouter();
@@ -20,7 +20,10 @@ export const VerifyEmailScreen = () => {
 
     useEffect(() => {
         if (code.length >= 4)
-            verifyEmail(code).then(() => router.push('/dashboard'));
+            verifyEmail(code).then(() => {
+                toast.success('Email успешно подтвержден')
+                router.push('/dashboard')
+            });
     }, [code])
 
     if (hasVerifiedEmail || !isAuth) {
