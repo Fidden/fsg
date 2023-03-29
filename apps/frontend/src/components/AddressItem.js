@@ -3,6 +3,7 @@ import {Disclosure} from '@headlessui/react';
 import AddressStroke from './ui/AddressStroke';
 import {useAuth} from '@/hooks/auth';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import {string} from "yup";
 
 const AddressItem = ({ storage }) => {
   const { country, address } = storage;
@@ -33,11 +34,11 @@ const AddressItem = ({ storage }) => {
             <tbody className="divide-y divide-primary-8 ">
             <AddressStroke name="Country">{country.name}</AddressStroke>
             <AddressStroke name="First Name">{recipient?.first_name_en}</AddressStroke>
-            <AddressStroke name="Last Name">{recipient?.last_name_en + ' ' + 'FSG' + user?.id}</AddressStroke>
+            <AddressStroke name="Last Name">{recipient?.last_name_en ? recipient?.last_name_en + ' ' + 'FSG' + user?.id : ''}</AddressStroke>
             <AddressStroke name="City">{address.city}</AddressStroke>
             <AddressStroke name="Street">{address.street}</AddressStroke>
-            <AddressStroke name="State/Province">data={storage.country.code}</AddressStroke>
-            <AddressStroke name="Zip"></AddressStroke>
+            <AddressStroke name="State/Province">{storage.country.code ? 'data=' + storage.country.code : ''}</AddressStroke>
+            <AddressStroke name="Zip">{address.zip}</AddressStroke>
             <AddressStroke name="Telephone">{storage.phone}</AddressStroke>
             </tbody>
           </table>
