@@ -42,6 +42,18 @@ export default function Business() {
                                 <Input required type="number" id="uid" {...register('uid')} placeholder="405588380"/>
                             </InputGroup>
 
+                            <InputGroup
+                              label={t(`signUpPersonalDataForm.phone`)} id="phone"
+                              errors={errors.phone}
+                            >
+                                <Input
+                                  required
+                                  type="text"
+                                  id="document_number" {...register('phone')}
+                                  placeholder="(+995) 32 555-1234"
+                                />
+                            </InputGroup>
+
                             <SelectBranch selectedBranchId={selectedBranchId} setSelectedBranchId={setSelectedBranchId}
                                           errors={errors.branch_id}/>
                         </div>
