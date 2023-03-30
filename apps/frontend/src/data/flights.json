@@ -27,7 +27,7 @@
     "departured_at": "1988-03-07T00:00:00.000000Z",
     "arrived_at": "1971-11-16T00:00:00.000000Z",
     "status": "aborted"
-  }, 
+  },
   {
     "id": 12,
     "storage": {
@@ -56,7 +56,7 @@
     "departured_at": "1988-03-07T00:00:00.000000Z",
     "arrived_at": "1971-11-16T00:00:00.000000Z",
     "status": "cancelled"
-  },  
+  },
   {
     "id": 11,
     "storage": {
@@ -85,295 +85,295 @@
     "departured_at": "1988-03-07T00:00:00.000000Z",
     "arrived_at": "1971-11-16T00:00:00.000000Z",
     "status": "active"
-  },  
+  },
   {
+    "id": 10,
+    "storage": {
       "id": 10,
-      "storage": {
-        "id": 10,
-        "country": {
-          "code": "AT",
-          "name": "Georgia"
-        },
-        "address": {
-          "zip": "71809-9799",
-          "city": "Lake Shanellefurt",
-          "street": "350 Gabrielle Pass"
-        }
+      "country": {
+        "code": "AT",
+        "name": "Georgia"
       },
-      "branch": {
-        "id": 10,
-        "city": {
-          "id": 10,
-          "key": "Port Lempi",
-          "country": {
-            "code": "TT",
-            "name": "Batumi"
-          }
-        }
-      },
-      "departured_at": "1988-03-07T00:00:00.000000Z",
-      "arrived_at": "1971-11-16T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "71809-9799",
+        "city": "Lake Shanellefurt",
+        "street": "350 Gabrielle Pass"
+      }
     },
-    {
+    "branch": {
+      "id": 10,
+      "city": {
+        "id": 10,
+        "key": "Port Lempi",
+        "country": {
+          "code": "TT",
+          "name": "Batumi"
+        }
+      }
+    },
+    "departured_at": "1988-03-07T00:00:00.000000Z",
+    "arrived_at": "1971-11-16T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 9,
+    "storage": {
       "id": 9,
-      "storage": {
-        "id": 9,
-        "country": {
-          "code": "CO",
-          "name": "Colombia"
-        },
-        "address": {
-          "zip": "15840",
-          "city": "Blairside",
-          "street": "632 Gunnar Alley"
-        }
+      "country": {
+        "code": "CO",
+        "name": "Colombia"
       },
-      "branch": {
-        "id": 9,
-        "city": {
-          "id": 9,
-          "key": "West Roma",
-          "country": {
-            "code": "SR",
-            "name": "Suriname"
-          }
-        }
-      },
-      "departured_at": "2001-04-16T00:00:00.000000Z",
-      "arrived_at": "1977-06-01T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "15840",
+        "city": "Blairside",
+        "street": "632 Gunnar Alley"
+      }
     },
-    {
+    "branch": {
+      "id": 9,
+      "city": {
+        "id": 9,
+        "key": "West Roma",
+        "country": {
+          "code": "SR",
+          "name": "Suriname"
+        }
+      }
+    },
+    "departured_at": "2001-04-16T00:00:00.000000Z",
+    "arrived_at": "1977-06-01T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 8,
+    "storage": {
       "id": 8,
-      "storage": {
-        "id": 8,
-        "country": {
-          "code": "DE",
-          "name": "Germany"
-        },
-        "address": {
-          "zip": "75290-4483",
-          "city": "Port Nikko",
-          "street": "542 Broderick Spring"
-        }
+      "country": {
+        "code": "DE",
+        "name": "Germany"
       },
-      "branch": {
-        "id": 8,
-        "city": {
-          "id": 8,
-          "key": "West Myriamshire",
-          "country": {
-            "code": "ET",
-            "name": "Ethiopia"
-          }
-        }
-      },
-      "departured_at": "2020-06-04T00:00:00.000000Z",
-      "arrived_at": "2003-07-09T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "75290-4483",
+        "city": "Port Nikko",
+        "street": "542 Broderick Spring"
+      }
     },
-    {
+    "branch": {
+      "id": 8,
+      "city": {
+        "id": 8,
+        "key": "West Myriamshire",
+        "country": {
+          "code": "ET",
+          "name": "Ethiopia"
+        }
+      }
+    },
+    "departured_at": "2020-06-04T00:00:00.000000Z",
+    "arrived_at": "2003-07-09T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 7,
+    "storage": {
       "id": 7,
-      "storage": {
-        "id": 7,
-        "country": {
-          "code": "SZ",
-          "name": "Eswatini"
-        },
-        "address": {
-          "zip": "49267-7504",
-          "city": "Madisonchester",
-          "street": "393 Kshlerin Mount"
-        }
+      "country": {
+        "code": "SZ",
+        "name": "Eswatini"
       },
-      "branch": {
-        "id": 7,
-        "city": {
-          "id": 7,
-          "key": "Pinkieshire",
-          "country": {
-            "code": "KE",
-            "name": "Kenya"
-          }
-        }
-      },
-      "departured_at": "2018-01-17T00:00:00.000000Z",
-      "arrived_at": "1994-02-24T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "49267-7504",
+        "city": "Madisonchester",
+        "street": "393 Kshlerin Mount"
+      }
     },
-    {
+    "branch": {
+      "id": 7,
+      "city": {
+        "id": 7,
+        "key": "Pinkieshire",
+        "country": {
+          "code": "KE",
+          "name": "Kenya"
+        }
+      }
+    },
+    "departured_at": "2018-01-17T00:00:00.000000Z",
+    "arrived_at": "1994-02-24T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 6,
+    "storage": {
       "id": 6,
-      "storage": {
-        "id": 6,
-        "country": {
-          "code": "AQ",
-          "name": "Antarctica"
-        },
-        "address": {
-          "zip": "00475-2367",
-          "city": "Port Chaunceyview",
-          "street": "5047 Janae Groves"
-        }
+      "country": {
+        "code": "AQ",
+        "name": "Antarctica"
       },
-      "branch": {
-        "id": 6,
-        "city": {
-          "id": 6,
-          "key": "South Shermanport",
-          "country": {
-            "code": "NA",
-            "name": "Namibia"
-          }
-        }
-      },
-      "departured_at": "2017-07-07T00:00:00.000000Z",
-      "arrived_at": "2012-05-30T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "00475-2367",
+        "city": "Port Chaunceyview",
+        "street": "5047 Janae Groves"
+      }
     },
-    {
+    "branch": {
+      "id": 6,
+      "city": {
+        "id": 6,
+        "key": "South Shermanport",
+        "country": {
+          "code": "NA",
+          "name": "Namibia"
+        }
+      }
+    },
+    "departured_at": "2017-07-07T00:00:00.000000Z",
+    "arrived_at": "2012-05-30T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 5,
+    "storage": {
       "id": 5,
-      "storage": {
-        "id": 5,
-        "country": {
-          "code": "KI",
-          "name": "Kiribati"
-        },
-        "address": {
-          "zip": "00395-4105",
-          "city": "New Barton",
-          "street": "94304 Braxton Groves"
-        }
+      "country": {
+        "code": "KI",
+        "name": "Kiribati"
       },
-      "branch": {
-        "id": 5,
-        "city": {
-          "id": 5,
-          "key": "North Audrey",
-          "country": {
-            "code": "CC",
-            "name": "Spain"
-          }
-        }
-      },
-      "departured_at": "2002-08-18T00:00:00.000000Z",
-      "arrived_at": "2002-03-09T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "00395-4105",
+        "city": "New Barton",
+        "street": "94304 Braxton Groves"
+      }
     },
-    {
+    "branch": {
+      "id": 5,
+      "city": {
+        "id": 5,
+        "key": "North Audrey",
+        "country": {
+          "code": "CC",
+          "name": "Spain"
+        }
+      }
+    },
+    "departured_at": "2002-08-18T00:00:00.000000Z",
+    "arrived_at": "2002-03-09T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 4,
+    "storage": {
       "id": 4,
-      "storage": {
-        "id": 4,
-        "country": {
-          "code": "MH",
-          "name": "Marshall Islands"
-        },
-        "address": {
-          "zip": "08205",
-          "city": "Edmondside",
-          "street": "37688 Green Hills"
-        }
+      "country": {
+        "code": "MH",
+        "name": "Marshall Islands"
       },
-      "branch": {
-        "id": 4,
-        "city": {
-          "id": 4,
-          "key": "Lake Lucindachester",
-          "country": {
-            "code": "TR",
-            "name": "Turkey"
-          }
-        }
-      },
-      "departured_at": "1982-10-31T00:00:00.000000Z",
-      "arrived_at": "2020-06-28T00:00:00.000000Z",
-      "status": "arrived"
+      "address": {
+        "zip": "08205",
+        "city": "Edmondside",
+        "street": "37688 Green Hills"
+      }
     },
-    {
-      "id": 3,
-      "storage": {
-        "id": 3,
-        "country": {
-          "code": "BS",
-          "name": "Bahamas"
-        },
-        "address": {
-          "zip": "91016",
-          "city": "Konopelskimouth",
-          "street": "573 Schuster Extension"
-        }
-      },
-      "branch": {
-        "id": 3,
-        "city": {
-          "id": 3,
-          "key": "South Makennamouth",
-          "country": {
-            "code": "DJ",
-            "name": "Djibouti"
-          }
-        }
-      },
-      "departured_at": "2008-09-12T00:00:00.000000Z",
-      "arrived_at": "2008-05-15T00:00:00.000000Z",
-      "status": "arrived"
-    },
-    {
-      "id": 2,
-      "storage": {
-        "id": 2,
+    "branch": {
+      "id": 4,
+      "city": {
+        "id": 4,
+        "key": "Lake Lucindachester",
         "country": {
           "code": "TR",
           "name": "Turkey"
-        },
-        "address": {
-          "zip": "95968-9753",
-          "city": "South Archibald",
-          "street": "45784 Denesik Passage"
         }
-      },
-      "branch": {
-        "id": 2,
-        "city": {
-          "id": 2,
-          "key": "Crawfordborough",
-          "country": {
-            "code": "LA",
-            "name": "Laos"
-          }
-        }
-      },
-      "departured_at": "1975-10-24T00:00:00.000000Z",
-      "arrived_at": "2019-07-10T00:00:00.000000Z",
-      "status": "arrived"
+      }
     },
-    {
-      "id": 1,
-      "storage": {
-        "id": 1,
+    "departured_at": "1982-10-31T00:00:00.000000Z",
+    "arrived_at": "2020-06-28T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 3,
+    "storage": {
+      "id": 3,
+      "country": {
+        "code": "BS",
+        "name": "Bahamas"
+      },
+      "address": {
+        "zip": "91016",
+        "city": "Konopelskimouth",
+        "street": "573 Schuster Extension"
+      }
+    },
+    "branch": {
+      "id": 3,
+      "city": {
+        "id": 3,
+        "key": "South Makennamouth",
         "country": {
-          "code": "VE",
-          "name": "Venezuela"
-        },
-        "address": {
-          "zip": "03009-2317",
-          "city": "Mertzchester",
-          "street": "1924 Maybelle Grove"
+          "code": "DJ",
+          "name": "Djibouti"
         }
+      }
+    },
+    "departured_at": "2008-09-12T00:00:00.000000Z",
+    "arrived_at": "2008-05-15T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 2,
+    "storage": {
+      "id": 2,
+      "country": {
+        "code": "TR",
+        "name": "Turkey"
       },
-      "branch": {
+      "address": {
+        "zip": "95968-9753",
+        "city": "South Archibald",
+        "street": "45784 Denesik Passage"
+      }
+    },
+    "branch": {
+      "id": 2,
+      "city": {
+        "id": 2,
+        "key": "Crawfordborough",
+        "country": {
+          "code": "LA",
+          "name": "Laos"
+        }
+      }
+    },
+    "departured_at": "1975-10-24T00:00:00.000000Z",
+    "arrived_at": "2019-07-10T00:00:00.000000Z",
+    "status": "arrived"
+  },
+  {
+    "id": 1,
+    "storage": {
+      "id": 1,
+      "country": {
+        "code": "VE",
+        "name": "Venezuela"
+      },
+      "address": {
+        "zip": "03009-2317",
+        "city": "Mertzchester",
+        "street": "1924 Maybelle Grove"
+      }
+    },
+    "branch": {
+      "id": 1,
+      "city": {
         "id": 1,
-        "city": {
-          "id": 1,
-          "key": "New Eltonland",
-          "country": {
-            "code": "MN",
-            "name": "Mongolia"
-          }
+        "key": "New Eltonland",
+        "country": {
+          "code": "MN",
+          "name": "Mongolia"
         }
-      },
-      "departured_at": "1982-09-01T00:00:00.000000Z",
-      "arrived_at": "2017-03-30T00:00:00.000000Z",
-      "status": "scheduled"
-    }
-  ]
+      }
+    },
+    "departured_at": "1982-09-01T00:00:00.000000Z",
+    "arrived_at": "2017-03-30T00:00:00.000000Z",
+    "status": "scheduled"
+  }
+]

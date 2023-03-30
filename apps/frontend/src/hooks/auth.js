@@ -206,7 +206,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
         ) {
             router.push('/dashboard');
         }
-    }, [user, error])
+    }, [user, error, hasVerifiedEmail])
 
     const verifyEmail = async (code) => {
         try {
@@ -215,10 +215,13 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
             });
 
             if (response.status === 200) {
-                router.push('/dashboard');
+                toast.success('Ваш email потдтвержден')
+
+                await mutate();
+                await router.push('/dashboard')
             }
         } catch (e) {
-            console.log('verify email log', e)
+            toast.error(e.response?.data?.error?.message);
         }
     }
 

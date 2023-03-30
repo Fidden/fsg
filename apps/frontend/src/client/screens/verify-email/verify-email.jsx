@@ -20,10 +20,7 @@ export const VerifyEmailScreen = () => {
 
     useEffect(() => {
         if (code.length >= 4)
-            verifyEmail(code).then(() => {
-                toast.success('Email успешно подтвержден')
-                router.push('/dashboard')
-            });
+            verifyEmail(code);
     }, [code])
 
     if (hasVerifiedEmail || !isAuth) {

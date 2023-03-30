@@ -57,7 +57,7 @@ export default function IndividualNonResident() {
                             >
                                 <Input
                                     required
-                                    type="text"
+                                    type="tel"
                                     id="document_number" {...register('phone')}
                                     placeholder="(+995) 32 555-1234"
                                 />

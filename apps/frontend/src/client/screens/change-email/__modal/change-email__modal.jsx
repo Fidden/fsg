@@ -14,15 +14,22 @@ export const ChangeEmailModal = () => {
     const {user} = useAuth();
 
     useEffect(() => {
-        if (code.length >= 4) {
-            changeEmail()
-                .then(() => {
-                    toast.success('Почта успешно изменена')
-                    router.push('/dashboard');
+        (async () => {
+            if (code.length < 4)
+                return;
+
+            try {
+                await axios.post('/users/change-email', {
+                    code,
                 })
-                .catch(e => toast.error(e));
-        }
+                toast.success('Почта успешно изменена')
+                await router.push('/dashboard');
+            } catch (e) {
+                toast.error(e?.response?.data?.error?.message)
+            }
+        })();
     }, [code])
+
 
     const requestEmailChange = async (event) => {
         event?.preventDefault();
@@ -32,16 +39,6 @@ export const ChangeEmailModal = () => {
             })
 
             toast.success('Код для подтверждения отправлен на почту.');
-        } catch (e) {
-            toast.error(e.message)
-        }
-    }
-
-    const changeEmail = async () => {
-        try {
-            await axios.post('/users/change-email', {
-                code,
-            })
         } catch (e) {
             toast.error(e.message)
         }

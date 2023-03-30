@@ -34,7 +34,7 @@ export default function ChangePassword() {
             toast.success('Пароль успешно изменен.')
             await router.push('/dashboard')
         } catch (e) {
-            toast.error(e.message);
+            toast.error(e.response?.data?.error?.message);
         }
     };
 
