@@ -1,79 +1,79 @@
 {
+  "id": 1,
+  "status": "pending",
+  "amount_total": 0,
+  "amount_paid": 0,
+  "branch": {
     "id": 1,
-    "status": "pending",
-    "amount_total": 0,
-    "amount_paid": 0,
-    "branch": {
+    "city": {
       "id": 1,
-      "city": {
-        "id": 1,
-        "key": "East Joanie"
+      "key": "East Joanie"
+    },
+    "working_hours": {
+      "friday": {
+        "to": "18:00",
+        "from": "09:00"
       },
-      "working_hours": {
-        "friday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "monday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "sunday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "tuesday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "saturday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "thursday": {
-          "to": "18:00",
-          "from": "09:00"
-        },
-        "wednesday": {
-          "to": "18:00",
-          "from": "09:00"
-        }
+      "monday": {
+        "to": "18:00",
+        "from": "09:00"
       },
-      "phone": "+16204998723",
+      "sunday": {
+        "to": "18:00",
+        "from": "09:00"
+      },
+      "tuesday": {
+        "to": "18:00",
+        "from": "09:00"
+      },
+      "saturday": {
+        "to": "18:00",
+        "from": "09:00"
+      },
+      "thursday": {
+        "to": "18:00",
+        "from": "09:00"
+      },
+      "wednesday": {
+        "to": "18:00",
+        "from": "09:00"
+      }
+    },
+    "phone": "+16204998723",
+    "address": {
+      "zip": "26189-6250",
+      "street": "13042 Parisian Viaduct",
+      "comment": "Quia neque illo laborum quo maxime. Beatae voluptatem recusandae repudiandae est architecto consequatur dicta. Iure est non blanditiis."
+    }
+  },
+  "flight": null,
+  "package": {
+    "id": 1,
+    "name": "flashlight",
+    "tracking_number": "123456789012",
+    "weight": 0.37,
+    "size": null,
+    "worth_amount": 10.99,
+    "worth_currency": "USD",
+    "shop": {
+      "id": 1,
+      "name": "Jerde, Stark and O'Keefe",
+      "url": "https://wiza.net/reiciendis-quo-vitae-dolores-quam-eveniet-dicta-pariatur-et.html"
+    },
+    "storage": {
+      "id": 1,
+      "country": {
+        "code": "SI",
+        "name": "Slovenia"
+      },
       "address": {
-        "zip": "26189-6250",
-        "street": "13042 Parisian Viaduct",
-        "comment": "Quia neque illo laborum quo maxime. Beatae voluptatem recusandae repudiandae est architecto consequatur dicta. Iure est non blanditiis."
+        "zip": "00761-8134",
+        "city": "Volkmantown",
+        "street": "85365 Tianna Highway"
       }
-    },
-    "flight": null,
-    "package": {
-      "id": 1,
-      "name": "flashlight",
-      "tracking_number": "123456789012",
-      "weight": 0.37,
-      "size": null,
-      "worth_amount": 10.99,
-      "worth_currency": "USD",
-      "shop": {
-        "id": 1,
-        "name": "Jerde, Stark and O'Keefe",
-        "url": "https://wiza.net/reiciendis-quo-vitae-dolores-quam-eveniet-dicta-pariatur-et.html"
-      },
-      "storage": {
-        "id": 1,
-        "country": {
-          "code": "SI",
-          "name": "Slovenia"
-        },
-        "address": {
-          "zip": "00761-8134",
-          "city": "Volkmantown",
-          "street": "85365 Tianna Highway"
-        }
-      }
-    },
-    "created_at": "2023-03-01T12:49:47.000000Z",
-    "updated_at": "2023-03-01T12:49:47.000000Z",
-    "deleted_at": null
-  }
+    }
+  },
+  "created_at": "2023-03-01T12:49:47.000000Z",
+  "updated_at": "2023-03-01T12:49:47.000000Z",
+  "deleted_at": null
+}

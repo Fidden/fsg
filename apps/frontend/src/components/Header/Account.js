@@ -4,19 +4,19 @@ import AuthButtons from "@/components/Header/AuthButtons";
 import {useAuth} from "@/hooks/auth";
 
 const Account = () => {
-  const { user, isUserLoading } = useAuth();
+    const {user, isUserLoading} = useAuth();
 
-  if (isUserLoading) {
-    return null;
-  }
+    if (isUserLoading) {
+        return null;
+    }
 
-  if (!user) {
-    return <AuthButtons/>;
-  }
+    if (!user) {
+        return <AuthButtons/>;
+    }
 
-  return (
-    <AccountMenu user={user}/>
-  );
+    return (
+        <AccountMenu user={user}/>
+    );
 }
 
 export default Account;

@@ -6,7 +6,6 @@ import {useRouter} from 'next/router';
 import LoadingLayout from "@/components/Layouts/LoadingLayout";
 import FormHead from "@/components/ui/FormHead";
 import './verify-email.css';
-import toast from "react-hot-toast";
 
 export const VerifyEmailScreen = () => {
     const router = useRouter();

@@ -70,11 +70,11 @@ class UserController extends Controller
     public function changePassword(UserChangePasswordRequest $request): Response|Application|ResponseFactory
     {
         $user = auth()->user();
-        if (Hash::make($request->password) == $user->password) {
+        if (!Hash::check($request->password, $user->password)) {
             return ResponseService::error(__('Password_doesnt_match'), 400);
         }
 
-        $user->password = $request->new_password;
+        $user->password = Hash::make($request->new_password);
         $user->save();
 
         return ResponseService::noContent();
