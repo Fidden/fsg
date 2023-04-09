@@ -18,41 +18,6 @@ class BranchFactory extends Factory
 
         return [
             'city_id' => $city->id,
-            'working_hours' => [
-                'monday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'tuesday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'wednesday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'thursday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'friday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'saturday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-                'sunday' => [
-                    'from' => '09:00',
-                    'to' => '18:00',
-                ],
-            ],
-            'address' => [
-                'street' => fake()->streetAddress,
-                'zip' => fake()->postcode,
-                'comment' => fake()->text,
-            ],
             'phone' => fake()->e164PhoneNumber,
         ];
     }

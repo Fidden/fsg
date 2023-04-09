@@ -108,7 +108,7 @@ export default function AccountMenu({user}) {
                                             {({active}) => (
                                                 <div className="py-1 px-4">
                                                     <p className="text-sm text-primary-60">Номер кабинета</p>
-                                                    <p className="font-medium text-md ">FSG{user.recipient.id}</p>
+                                                    <p className="font-medium text-md ">FSG{user.id}</p>
                                                 </div>
                                             )}
                                         </Menu.Item>

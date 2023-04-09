@@ -95,7 +95,7 @@ export default function AddParcel({children, reloadList}) {
                                                 <FormHead>Добавление посылки</FormHead>
                                                 <div className="flex flex-col gap-4 text-left">
                                                     <InputGroup label="Название посылки" errors={errors.name}>
-                                                        <Input maxlength="20" {...register('name')}
+                                                        <Input maxLength="20" {...register('name')}
                                                                placeholder="Любое название"/>
                                                         <InputDescription>Это поможет вам определить
                                                             посылку</InputDescription>

@@ -7,20 +7,21 @@
     "require": {
         "php": "^8.1",
         "darkaonline/l5-swagger": "^8.4",
+        "doctrine/dbal": "^3.0",
+        "dompdf/dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/breeze": "^1.18",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
-        "doctrine/dbal": "^3.0",
         "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.2",
+        "lee-to/moonshine": "^1.50",
+        "livewire/livewire": "^2.11",
+        "maatwebsite/excel": "^3.1",
         "propaganistas/laravel-phone": "^5.0",
         "spatie/laravel-data": "^3.0",
         "spatie/laravel-query-builder": "^5.1",
-        "tariq86/country-list": "^1.3",
-        "laravel/ui": "^4.2",
-        "livewire/livewire": "^2.11",
-        "maatwebsite/excel": "^3.1",
-        "dompdf/dompdf": "^2.0"
+        "tariq86/country-list": "^1.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

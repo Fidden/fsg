@@ -10,8 +10,6 @@ return new class () extends Migration {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('city_id')->index();
-            $table->jsonb('working_hours')->nullable();
-            $table->jsonb('address')->nullable();
             $table->string('phone')->nullable();
             $table->timestamps();
 

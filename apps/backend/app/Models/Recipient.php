@@ -60,7 +60,7 @@ class Recipient extends Model
 
     public static function types(): array
     {
-        return array_map(fn ($name) => Str::snake($name), RecipientType::names());
+        return array_map(fn($name) => Str::snake($name), RecipientType::names());
     }
 
     public function model(): MorphTo

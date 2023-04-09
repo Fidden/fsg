@@ -19,17 +19,17 @@ class Storage extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'address' => 'json',
-    ];
-
     protected $fillable = [
         'country_id',
-        'address',
     ];
 
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function currentAddress()
+    {
+        return $this->hasOne(StorageAddress::class);
     }
 }

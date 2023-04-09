@@ -17,12 +17,7 @@ class StorageFactory extends Factory
         $country = Country::query()->inRandomOrder()->first();
 
         return [
-            'country_id' => $country->id,
-            'address' => [
-                'city' => fake()->city,
-                'street' => fake()->streetAddress,
-                'zip' => fake()->postcode,
-            ],
+            'country_id' => $country->id
         ];
     }
 }

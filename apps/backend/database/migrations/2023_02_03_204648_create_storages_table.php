@@ -10,7 +10,6 @@ return new class () extends Migration {
         Schema::create('storages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('country_id');
-            $table->jsonb('address');
             $table->timestamps();
 
             $table->foreign('country_id')

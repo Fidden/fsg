@@ -23,9 +23,9 @@ class BranchResource extends JsonResource
         return [
             'id' => $this->id,
             'city' => $this->city,
-            'working_hours' => $this->working_hours,
+            'working_hours' => BranchWorkingHourResource::collection($this->workingHours)->keyBy('weekday')->toArray(),
             'phone' => $this->phone,
-            'address' => $this->address,
+            'address' => BranchAddressResource::make($this->currentAddress),
         ];
     }
 }

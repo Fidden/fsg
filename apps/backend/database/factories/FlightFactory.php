@@ -15,15 +15,7 @@ class FlightFactory extends Factory
 {
     public function definition(): array
     {
-        /** @var Storage $storage */
-        $storage = Storage::factory()->create();
-
-        /** @var Branch $branch */
-        $branch = Branch::factory()->create();
-
         return [
-            'from_storage_id' => $storage->id,
-            'to_branch_id' => $branch->id,
             'departured_at' => fake()->dateTime(),
             'arrived_at' => fake()->dateTime(),
             'status' => FlightStatus::Arrived,

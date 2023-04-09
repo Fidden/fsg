@@ -20,6 +20,6 @@ class RolesTableSeeder extends Seeder
             ],
         ];
 
-        Role::insert($roles);
+//        Role::insert($roles);
     }
 }

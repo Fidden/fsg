@@ -35,7 +35,7 @@ const ProfileInfo = () => {
             <table
                 className="min-w-full mb-2 break-all table-auto rounded-xl text-primary-100 text-md divide-y divide-primary-8 bg-primary-2">
                 <tbody className="divide-y divide-primary-8">
-                <AddressStroke name="Номер кабинета">{'FSG' + recipient.id}</AddressStroke>
+                <AddressStroke name="Номер кабинета">{'FSG' + user.id}</AddressStroke>
                 <AddressStroke name="Email">{user.email}</AddressStroke>
                 <AddressStroke name="Номер телефона">{user.phone}</AddressStroke>
                 <AddressStroke name="Баланс">{intl.formatNumber(user.balance || -1, {

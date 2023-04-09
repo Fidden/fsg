@@ -8,7 +8,6 @@ const AddressItem = ({storage}) => {
     const {country, address} = storage;
     const {user} = useAuth();
     const recipient = user?.recipient;
-
     const code = country.code.toLowerCase();
 
     return (
@@ -40,9 +39,9 @@ const AddressItem = ({storage}) => {
                             name="Last Name">{recipient?.last_name_en + ' ' + 'FSG' + user?.id}</AddressStroke>
                         <AddressStroke name="City">{address.city}</AddressStroke>
                         <AddressStroke name="Street">{address.street}</AddressStroke>
-                        <AddressStroke name="State/Province">data={storage.country.code}</AddressStroke>
-                        <AddressStroke name="Zip"></AddressStroke>
-                        <AddressStroke name="Telephone">{storage.phone}</AddressStroke>
+                        <AddressStroke name="State/Province">{storage.country.code}</AddressStroke>
+                        <AddressStroke name="Zip">{address.zip}</AddressStroke>
+                        <AddressStroke name="Telephone">{user?.phone ? user.phone : 'Неизвестен'}</AddressStroke>
                         </tbody>
                     </table>
                 </Disclosure.Panel>

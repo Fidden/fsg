@@ -21,7 +21,7 @@ class StorageResource extends JsonResource
         return [
             'id' => $this->id,
             'country' => $this->country,
-            'address' => $this->address,
+            'address' => StorageAddressResource::make($this->currentAddress)
         ];
     }
 }
