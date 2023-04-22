@@ -1,6 +1,6 @@
 import MainLayout from '@/components/Layouts/MainLayout';
 import FormHead from '@/components/ui/FormHead';
-import Input from '@/components/ui/input';
+import Input from '@/components/ui/Input';
 import InputGroup from '@/components/ui/InputGroup';
 import InputDescription from '@/components/ui/InputDescription';
 import PrimaryButton from '@/components/ui/PrimaryButton';
@@ -13,7 +13,7 @@ import axios from "@/lib/axios";
 import {ChangeEmailModal} from "@/client/screens/change-email/__modal/change-email__modal";
 
 export const ChangeEmailScreen = () => {
-    const {user, isUserLoading} = useAuth();
+    const {user} = useAuth();
     const [email, setEmail] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
 

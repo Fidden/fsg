@@ -14,7 +14,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
-use Propaganistas\LaravelPhone\Casts\E164PhoneNumberCast;
 
 /**
  * @property int $id
@@ -137,5 +136,10 @@ class User extends Authenticatable implements MustVerifyEmail
             ->where('action', $action->value)
             ->latest()
             ->value('code');
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

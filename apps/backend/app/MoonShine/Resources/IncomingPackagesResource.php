@@ -17,6 +17,8 @@ class IncomingPackagesResource extends Resource
 
     public static string $title = 'IncomingPackages';
 
+    public static bool $withPolicy = true;
+
     public function fields(): array
     {
         return [
@@ -29,7 +31,7 @@ class IncomingPackagesResource extends Resource
             Number::make('Weight', 'weight'),
             Text::make('Size', 'size'),
             Number::make('Worth amount', 'worth_amount'),
-            Text::make('Worth currency', 'worth_currency'),
+            Text::make('Worth currency', 'worth_currency')
         ];
     }
 

@@ -63,7 +63,6 @@ return [
         'created_at' => 'Created At',
         'admins_title' => 'Admins',
         'role_title' => 'Roles',
-        'users_title' => 'Users',
         'role_name' => 'Title',
 
         'main_information' => 'Main information',

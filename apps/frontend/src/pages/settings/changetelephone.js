@@ -1,6 +1,6 @@
 import MainLayout from '@/components/Layouts/MainLayout';
 import FormHead from '@/components/ui/FormHead';
-import Input from '@/components/ui/input';
+import Input from '@/components/ui/Input';
 import InputGroup from '@/components/ui/InputGroup';
 import InputDescription from '@/components/ui/InputDescription';
 import PrimaryButton from '@/components/ui/PrimaryButton';
@@ -13,7 +13,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 
 export default function ChangeTelephone() {
-    const {user, isUserLoading} = useAuth();
+    const {user} = useAuth();
     const router = useRouter();
     const [phone, setPhone] = useState('');
 

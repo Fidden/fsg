@@ -10,11 +10,11 @@ class OrderPackage extends Pivot
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'id', 'order_id');
+        return $this->belongsTo(Order::class);
     }
 
     public function package()
     {
-        return $this->belongsTo(OrderPackage::class, 'id', 'package_id');
+        return $this->belongsTo(OrderPackage::class);
     }
 }

@@ -9,6 +9,7 @@ use App\Models\IncomingPackage;
 use App\Models\Order;
 use App\Models\Shop;
 use App\Models\Storage;
+use App\Models\User;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use OpenApi\Attributes as OA;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -17,9 +18,13 @@ class OrderController extends Controller
 {
     public function index(): ResourceCollection
     {
-        $orders = QueryBuilder::for(Order::class)
-            ->with('packages')
-            ->paginate();
+//        $orders = QueryBuilder::for(Order::class)
+//            ->with('packages')
+//            ->paginate();
+
+        /** @var User $user */
+        $user = auth()->user();
+        $orders = $user->orders()->with('packages')->paginate();
 
         return OrderResource::collection($orders);
     }

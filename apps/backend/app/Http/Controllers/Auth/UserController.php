@@ -8,6 +8,7 @@ use App\Http\Requests\CodeVerifyRequest;
 use App\Http\Requests\UserChangePasswordRequest;
 use App\Http\Requests\UserChangePhoneRequest;
 use App\Http\Requests\UserRequestEmailChange;
+use App\Http\Resources\UserResource;
 use App\Notifications\EmailChangeNotification;
 use App\Services\ResponseService;
 use Illuminate\Contracts\Foundation\Application;
@@ -22,7 +23,7 @@ class UserController extends Controller
     public function show(Request $request): JsonResponse
     {
         return response()->json(
-            $request->user()->load('recipient')
+            UserResource::make($request->user()->load('recipient'))
         );
     }
 
@@ -87,7 +88,7 @@ class UserController extends Controller
     public function changePhone(UserChangePhoneRequest $request): Response|Application|ResponseFactory
     {
         $user = auth()->user();
-        $user->phone = $request->password;
+        $user->phone = $request->phone;
         $user->save();
 
         return ResponseService::noContent();

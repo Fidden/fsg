@@ -25,7 +25,7 @@ export default function Index() {
 
     const {register: createAccount, isUserLoading, isAuth, whereToGo} = useAuth({
         middleware: 'guest',
-        redirectIfAuthenticated: '/dashboard',
+        redirectIfAuthenticated: '/sign-up/type',
     });
 
     if (isUserLoading) {

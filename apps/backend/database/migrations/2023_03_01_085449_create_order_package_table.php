@@ -11,7 +11,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('package_id');
             $table->timestamps();
-
+            $table->unsignedBigInteger('id')->default(1);
             $table->foreign('order_id')
                 ->references('id')
                 ->on('orders')
@@ -22,7 +22,7 @@ return new class () extends Migration {
                 ->on('incoming_packages')
                 ->onDelete('cascade');
 
-            $table->primary(['order_id', 'package_id']);
+            $table->primary(['order_id', 'package_id'], 'order_package_id');
         });
     }
 

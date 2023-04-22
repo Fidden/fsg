@@ -26,9 +26,9 @@ export default function AddParcel({children, reloadList}) {
                 ...data,
                 worth_currency: selectedCurrency,
             })
-            .then(() => {
-                if (reloadList)
-                    reloadList();
+            .then((data) => {
+                console.log(data)
+                reloadList();
                 closeModal();
             })
             .catch((error) => {
@@ -37,8 +37,6 @@ export default function AddParcel({children, reloadList}) {
 
                     return;
                 }
-
-                console.log(error)
 
                 handleException(error);
             });

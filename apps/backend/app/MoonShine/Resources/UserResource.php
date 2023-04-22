@@ -5,13 +5,15 @@ namespace App\MoonShine\Resources;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Leeto\MoonShine\Actions\FiltersAction;
-use Leeto\MoonShine\Fields\{BelongsTo, HasOne, HasOneThrough, ID, Number, Text};
+use Leeto\MoonShine\Fields\{BelongsTo, ID, Number, Text};
 use Leeto\MoonShine\Resources\Resource;
+
 class UserResource extends Resource
 {
     public static string $model = User::class;
 
     public static string $title = 'User';
+    public static bool $withPolicy = true;
 
     public function fields(): array
     {

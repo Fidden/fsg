@@ -34,9 +34,24 @@ const AddressItem = ({storage}) => {
                         className="min-w-full table-auto rounded-xl text-primary-100 text-md divide-y divide-primary-8 bg-primary-2">
                         <tbody className="divide-y divide-primary-8 ">
                         <AddressStroke name="Country">{country.name}</AddressStroke>
-                        <AddressStroke name="First Name">{recipient?.first_name_en}</AddressStroke>
-                        <AddressStroke
-                            name="Last Name">{recipient?.last_name_en + ' ' + 'FSG' + user?.id}</AddressStroke>
+                        {user?.recipient?.first_name_en &&
+                            <>
+                                <AddressStroke name="First Name">
+                                    {recipient?.first_name_en}
+                                </AddressStroke>
+                                <AddressStroke
+                                    name="Last Name">
+                                    {recipient?.last_name_en + ' ' + ' #FSG' + user?.id}
+                                </AddressStroke>
+                            </>
+                        }
+                        {user?.recipient?.company_name_en &&
+                            <>
+                                <AddressStroke name="Company name">
+                                    {recipient?.company_name_en + ' #FSG' + user?.id}
+                                </AddressStroke>
+                            </>
+                        }
                         <AddressStroke name="City">{address.city}</AddressStroke>
                         <AddressStroke name="Street">{address.street}</AddressStroke>
                         <AddressStroke name="State/Province">{storage.country.code}</AddressStroke>

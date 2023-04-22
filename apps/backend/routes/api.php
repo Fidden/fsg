@@ -10,12 +10,16 @@ use App\Http\Controllers\RecipientController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 Route::get('/', function () {
     return response()->json([
         'message' => 'Hello, World',
     ]);
 });
+
+Route::get('/csrf-cookie', [CsrfCookieController::class, 'show'])
+    ->name('sanctum.csrf-cookie');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users/me', [UserController::class, 'show'])

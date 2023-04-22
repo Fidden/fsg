@@ -20,7 +20,7 @@ const onRequest = (config) => {
     config.headers['Content-Language'] = 'en';
 
     if (isWritingRequest(config.method)) {
-        return axios.get('/csrf-cookie').then(() => config);
+        return axios.get(`/csrf-cookie`).then(() => config);
     }
 
     return config;

@@ -17,6 +17,8 @@ class OrderResource extends Resource
 
     public static string $title = 'Order';
 
+    public static bool $withPolicy = true;
+
     public function fields(): array
     {
         return [

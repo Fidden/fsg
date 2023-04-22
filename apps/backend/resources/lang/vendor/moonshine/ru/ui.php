@@ -63,7 +63,6 @@ return [
         'created_at' => 'Дата создания',
         'admins_title' => 'Администраторы',
         'role_title' => 'Роли',
-        'users_title' => 'Пользователи',
         'role_name' => 'Название',
 
         'main_information' => 'Основная информация',
