@@ -5,8 +5,10 @@ import Walk from '@/components/icons/Walk';
 import TruckIcon from '@/components/icons/TruckIcon';
 import {Disclosure} from '@headlessui/react';
 import ParcelStroke from '@/components/ui/ParcelStroke';
+import EditParcel from "@/components/EditParcel";
+import DeleteParcel from "@/components/DeleteParcel";
 
-export default function ParcelItem({order}) {
+export default function ParcelItem({order, reloadList}) {
     // {`https://www.google.com/s2/favicons?domain=${order.package.shop.url}&sz=128`}
     const iconMap = {
         pending: <img className="w-6 rounded-full h-6" src="/logo.png"></img>,
@@ -35,7 +37,7 @@ export default function ParcelItem({order}) {
     const statusMap = {
         pending: <p className="text-sm text-primary-60 truncate">FSG ожидает вашу посылку</p>,
         processing: <p className="text-sm text-accent_2-100 truncate">Прибыла на склад
-            в {order.package.storage.country.name}</p>,
+            в {order.package?.storage?.country?.name}</p>,
         shipped: <p className="text-sm text-accent_4-100 truncate">Едет в {order.branch.city.key}</p>,
         arrived: <p className="text-sm text-accent_1-100 truncate">Ожидает получения</p>,
         completed: <p className="text-sm text-primary-60 truncate">Посылка получена</p>,
@@ -123,13 +125,32 @@ export default function ParcelItem({order}) {
                     </div>
                 </div>
             </Disclosure.Button>
-            <Disclosure.Panel className="pt-1 pb-4 px-4 max-sm:px-0">
+            <Disclosure.Panel className="pt-1 pb-4 px-4 max-sm:px-0 flex flex-col gap-2">
                 <table
                     className="min-w-full table-auto rounded-xl text-primary-100 text-md divide-y divide-primary-8 bg-primary-2">
                     <tbody className="divide-y divide-primary-8 ">
-                    <ParcelStroke name="Название" data="Iphone 12 Pro"/>
+                    <ParcelStroke name="Название" data={order.package.name}/>
+                    <ParcelStroke name="Магазин" data={order.package.shop.name}/>
+                    <ParcelStroke name="Склад"
+                                  data={
+                                      `${order.package.storage.address.city} ${order.package.storage.address.street}`
+                                  }/>
+                    <ParcelStroke name="Трек номер" data={order.package.tracking_number}/>
+                    <ParcelStroke name="Статус" data={order.status}/>
                     </tbody>
                 </table>
+                {order.status === 'pending' &&
+                    <>
+                        <EditParcel
+                            reloadList={reloadList}
+                            order={order}
+                        />
+                        <DeleteParcel
+                            reloadList={reloadList}
+                            order={order}
+                        />
+                    </>
+                }
             </Disclosure.Panel>
         </Disclosure>
     );

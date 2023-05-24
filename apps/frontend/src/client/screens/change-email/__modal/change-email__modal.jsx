@@ -77,7 +77,7 @@ export const ChangeEmailModal = () => {
 
                         <p
                             onClick={() => requestEmailChange()}
-                            className={'change-email__resend'}
+                            className={'change-email__resend cursor-pointer'}
                         >
                             Отправить код ещё раз
                         </p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import useSWR from 'swr';
+import useSWR, {mutate} from 'swr';
 import {defaultFetcher} from '@/lib/axios';
 import AddressItem from '@/components/AddressItem';
 import Loading from './ui/Loading';
@@ -27,7 +27,11 @@ const AddressesList = () => {
                 <h2 className="text-lg font-medium text-primary-100">Адреса</h2>
                 <div>
                     {storages?.map((storage) => (
-                        <AddressItem storage={storage} key={storage.id}/>
+                        <AddressItem
+                            reloadList={mutate}
+                            storage={storage}
+                            key={storage.id}
+                        />
                     ))}
                 </div>
             </div>

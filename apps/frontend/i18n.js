@@ -3,5 +3,5 @@ module.exports = {
     defaultLocale: 'ka',
     pages: {
         '*': ['auth', 'links', "locales", "common"],
-    },
+    }
 };

@@ -62,7 +62,7 @@ export const VerifyEmailScreen = () => {
 
                     <p
                         onClick={() => resendEmailVerification({setStatus})}
-                        className={'verify-email__resend'}
+                        className={'verify-email__resend cursor-pointer'}
                     >
                         Отправить код ещё раз
                     </p>

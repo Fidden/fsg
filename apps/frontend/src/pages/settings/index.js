@@ -15,8 +15,9 @@ export default function Settings() {
                 <h2 className="text-lg font-medium text-primary-100">Настройки</h2>
                 <div>
                     <SettingsItem
+                        href="/settings/change-branch"
                         className="pointer-events-none"
-                        description={user?.branch.city.key + ' ' +  user?.branch.address.street}
+                        description={user?.branch.city.key + ' ' + user?.branch.address.street}
                         img={<Garage/>}
                     >
                         Филиал для доставки

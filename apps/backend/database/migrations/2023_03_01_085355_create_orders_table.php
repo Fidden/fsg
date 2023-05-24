@@ -16,6 +16,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('branch_id');
             $table->unsignedDouble('amount_total')->default(0);
             $table->unsignedDouble('amount_paid')->default(0);
+            $table->string('invoice')->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();
 

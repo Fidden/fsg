@@ -3,6 +3,7 @@ import {Disclosure} from '@headlessui/react';
 import AddressStroke from './ui/AddressStroke';
 import {useAuth} from '@/hooks/auth';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import EditParcel from "@/components/EditParcel";
 
 const AddressItem = ({storage}) => {
     const {country, address} = storage;

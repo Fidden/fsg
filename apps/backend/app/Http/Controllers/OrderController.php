@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\OrderStatus;
+use App\Http\Requests\OrderUpdateRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\IncomingPackage;
@@ -10,6 +11,7 @@ use App\Models\Order;
 use App\Models\Shop;
 use App\Models\Storage;
 use App\Models\User;
+use App\Services\ResponseService;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use OpenApi\Attributes as OA;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -18,10 +20,6 @@ class OrderController extends Controller
 {
     public function index(): ResourceCollection
     {
-//        $orders = QueryBuilder::for(Order::class)
-//            ->with('packages')
-//            ->paginate();
-
         /** @var User $user */
         $user = auth()->user();
         $orders = $user->orders()->with('packages')->paginate();
@@ -78,8 +76,54 @@ class OrderController extends Controller
             'branch_id' => $request->branch_id ?: $user->recipient->branch_id,
         ]);
 
+        if ($request->has('invoice')) {
+            $invoicePath = "invoices/{$user->id}/{$order->id}";
+            $link = \Illuminate\Support\Facades\Storage::disk('public')->put(
+                $invoicePath,
+                $request->file('invoice')
+            );
+
+            $order->invoice = $link;
+            $order->save();
+        }
+
         $order->packages()->attach($package);
 
         return OrderResource::make($order);
+    }
+
+    public function update(OrderUpdateRequest $request)
+    {
+        $user = $request->user();
+        IncomingPackage::query()->find($request->package_id)->update(
+            $request->only([
+                'name',
+                'tracking_number',
+                'worth_amount',
+                'worth_currency'
+            ])
+        );
+
+        /** @var Order $order */
+        $order = Order::query()->find($request->order_id);
+
+        if ($request->has('invoice')) {
+            $invoicePath = "invoices/{$user->id}/{$order->id}";
+            $link = \Illuminate\Support\Facades\Storage::disk('public')->put(
+                $invoicePath,
+                $request->file('invoice')
+            );
+
+            $order->invoice = $link;
+            $order->save();
+        }
+
+        return OrderResource::make($order);
+    }
+
+    public function destroy(Order $order)
+    {
+        $order->delete();
+        return ResponseService::noContent();
     }
 }

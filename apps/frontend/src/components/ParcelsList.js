@@ -37,7 +37,11 @@ const ParcelsList = (order) => {
                 <h2 className="text-lg font-medium text-primary-100">Посылки</h2>
                 <div className="flex flex-col">
                     {orders.data?.map((order) => (
-                        <ParcelItem order={order} key={order.id}/>
+                        <ParcelItem
+                            order={order}
+                            key={order.id}
+                            reloadList={mutate}
+                        />
                     ))}
                 </div>
             </div>

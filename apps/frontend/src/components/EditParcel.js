@@ -12,30 +12,41 @@ import Invoice from '@/components/icons/Invoice';
 
 const currencies = ['USD', 'EUR', 'GEL'];
 
-export default function AddParcel({children, reloadList}) {
+export default function EditParcel({order, reloadList}) {
     const [errors, setErrors] = useState([]);
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
 
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit} = useForm({
+        values: {
+            name: order.package.name,
+            tracking_number: order.package.tracking_number,
+            worth_amount: order.package.worth_amount,
+            shop: order.package.shop.url
+        }
+    });
 
     const onSubmmit = (data) => {
         setErrors([]);
 
         return axios
-            .post('/orders', {
+            .post('/orders/update', {
                 ...data,
+                order_id: order.id,
+                package_id: order.package.id,
                 worth_currency: selectedCurrency,
                 invoice: data.invoice ? data.invoice[0] : null
             }, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
                 }
             })
             .then(() => {
-                reloadList();
+                if (reloadList)
+                    reloadList();
                 closeModal();
             })
             .catch((error) => {
+                console.log(error)
                 if (error.response?.status === 422) {
                     setErrors(error.response.data.errors);
 
@@ -57,12 +68,9 @@ export default function AddParcel({children, reloadList}) {
 
     return (
         <>
-            <button
-                type="button"
-                onClick={openModal}
-                className="text-primary-100 max-sm:w-full text-md hover:bg-primary-8 font-medium h-10 rounded-xl px-4 bg-primary-4">
-                {children}
-            </button>
+            <PrimaryButton onClick={openModal}>
+                Редактировать
+            </PrimaryButton>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={openModal}>
                     {/* The backdrop, rendered as a fixed sibling to the panel container */}
@@ -93,31 +101,38 @@ export default function AddParcel({children, reloadList}) {
                                         <Dialog.Panel>
                                             <form onSubmit={handleSubmit(onSubmmit)}
                                                   className="w-96 gap-8 flex flex-col p-8 rounded-xl bg-white">
-                                                <FormHead>Добавление посылки</FormHead>
+                                                <FormHead>Редактирование посылки</FormHead>
                                                 <div className="flex flex-col gap-4 text-left">
                                                     <InputGroup label="Название посылки" errors={errors.name}>
-                                                        <Input maxLength="20" {...register('name')}
-                                                               placeholder="Любое название"/>
+                                                        <Input
+                                                            maxLength="20"
+                                                            {...register('name')}
+                                                            placeholder="Любое название"
+                                                        />
                                                         <InputDescription>Это поможет вам определить
                                                             посылку</InputDescription>
                                                     </InputGroup>
                                                     <InputGroup label="Номер отслеживания (трекинг)"
                                                                 errors={errors.tracking_number}>
-                                                        <Input {...register('tracking_number')}
-                                                               placeholder="1Z602AW60283834284"/>
+                                                        <Input
+                                                            {...register('tracking_number')}
+                                                            placeholder="1Z602AW60283834284"
+                                                        />
                                                         <InputDescription>Укажите трекинг с сайта, с которого сделан
                                                             заказ</InputDescription>
                                                     </InputGroup>
                                                     <InputGroup label="Веб-сайт" errors={errors.shop}>
-                                                        <Input {...register('shop')} placeholder="amazon.com"/>
+                                                        <Input
+                                                            {...register('shop')} placeholder="amazon.com"/>
                                                         <InputDescription>Сайт, с которого сделан
                                                             заказ</InputDescription>
                                                     </InputGroup>
 
                                                     <InputGroup label="Стоимость посылки" errors={errors.worth_amount}>
                                                         <div className="flex gap-2">
-                                                            <Input type="number" {...register('worth_amount')}
-                                                                   placeholder="10.25"/>
+                                                            <Input
+                                                                type="number" {...register('worth_amount')}
+                                                                placeholder="10.25"/>
                                                             <FormSelect selectedCurrency={selectedCurrency}
                                                                         setSelectedCurrency={setSelectedCurrency}
                                                                         availableCurrencies={currencies}/>
@@ -153,7 +168,7 @@ export default function AddParcel({children, reloadList}) {
                                                     </div>
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <PrimaryButton>Добавить</PrimaryButton>
+                                                    <PrimaryButton>Сохранить</PrimaryButton>
                                                     <button
                                                         type="button"
                                                         onClick={closeModal}

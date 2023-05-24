@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/users/change-email', [UserController::class, 'changeEmail']);
     Route::post('/users/change-password', [UserController::class, 'changePassword']);
     Route::post('/users/change-phone', [UserController::class, 'changePhone']);
+    Route::post('/users/change-branch', [UserController::class, 'changeBranch']);
 
     Route::get('/users/phone', [PhoneVerificationController::class, 'store'])
         ->name('users.phone.send-code');
@@ -94,4 +95,10 @@ Route::prefix('orders')
 
         Route::post('/', [OrderController::class, 'store'])
             ->name('store');
+
+        Route::delete('/{order}', [OrderController::class, 'destroy'])
+            ->name('destroy');
+
+        Route::post('/update', [OrderController::class, 'update'])
+            ->name('update');
     });

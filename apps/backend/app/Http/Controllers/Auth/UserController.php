@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Enums\VerifyCodeAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CodeVerifyRequest;
+use App\Http\Requests\UserChangeBranchRequest;
 use App\Http\Requests\UserChangePasswordRequest;
 use App\Http\Requests\UserChangePhoneRequest;
 use App\Http\Requests\UserRequestEmailChange;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Notifications\EmailChangeNotification;
 use App\Services\ResponseService;
 use Illuminate\Contracts\Foundation\Application;
@@ -89,6 +91,22 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $user->phone = $request->phone;
+        $user->save();
+
+        return ResponseService::noContent();
+    }
+
+    /**
+     * @param UserChangeBranchRequest $request
+     * @return Response|Application|ResponseFactory
+     */
+    public function changeBranch(UserChangeBranchRequest $request): Response|Application|ResponseFactory
+    {
+        /* @var User $user */
+        $user = auth()->user();
+        $user->recipient()->update([
+            'branch_id' => $request->branch_id
+        ]);
         $user->save();
 
         return ResponseService::noContent();

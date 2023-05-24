@@ -54,8 +54,11 @@ export default function Business() {
                                 />
                             </InputGroup>
 
-                            <SelectBranch selectedBranchId={selectedBranchId} setSelectedBranchId={setSelectedBranchId}
-                                          errors={errors.branch_id}/>
+                            <SelectBranch
+                                selectedBranchId={selectedBranchId}
+                                setSelectedBranchId={setSelectedBranchId}
+                                errors={errors.branch_id}
+                            />
                         </div>
 
                         <div className="flex flex-col gap-6 mt-6">
